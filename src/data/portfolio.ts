@@ -55,7 +55,7 @@ export const portfolio: Semester[] = [
     tagline: 'First year — foundation',
     summary:
       'My very first eportfolio. Built when I was learning the basics of HTML and web design. Kept online as a record of where I started.',
-    externalUrl: 'https://syahmifaris.github.io/',
+    externalUrl: 'https://github.com/Syahmi-Faris/syahmifaris.github.io.git',
     subjects: [],
   },
   {
