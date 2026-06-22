@@ -1,0 +1,638 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2025.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1038" y="54" width="360" height="324" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Data Input & Cleaning: Imported orders.csv, products.csv, order_items.csv, and Customer.csv. Formatted transactional financial fields to numeric Double types and parsed the raw string order_purchase_timestamp into a standardized DateTime object. Cleaned string fields using the Data Cleansing tool to prevent whitespace mismatches.
+
+Data Integration: Utilized a chain of Inner Join tools to seamlessly combine the datasets via shared relational keys (customer_id, order_id, and product_id) into a unified processing stream. Removed duplicate join columns to optimize performance.  
+
+Calculated Fields: Applied a Formula tool to create three critical analytical variables:
+ * Profit Margin (%) calculated using the business logic formula.
+ * Discount Rate (%) derived to contrast catalog prices against finalized transaction amounts.
+ * Order Year extracted from the parsed datetime tracking field.
+ * Aggregation: Applied a Summarize tool to group data by category, year, and state, summing the transactional prices to output a structured total revenue matrix ready for Tableau ingestion.  ]]></Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="3" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="52" y="28" width="887" height="453" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Syahmi - Sales &amp; Product Workflow Section</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Syahmi - Sales &amp; Product Workflow Section</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="78" y="78" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv</File>
+              <FormatSpecificOptions>
+                <CodePage>28591</CodePage>
+                <Delimeter>,</Delimeter>
+                <IgnoreErrors>False</IgnoreErrors>
+                <FieldLen>254</FieldLen>
+                <AllowShareWrite>False</AllowShareWrite>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>orders.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="order_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+                <Field name="customer_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+                <Field name="order_status" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+                <Field name="order_purchase_timestamp" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+                <Field name="order_approved_at" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+                <Field name="order_delivered_carrier_date" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+                <Field name="order_delivered_customer_date" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+                <Field name="order_estimated_delivery_date" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\orders.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="77" y="318" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv</File>
+              <FormatSpecificOptions>
+                <CodePage>28591</CodePage>
+                <Delimeter>,</Delimeter>
+                <IgnoreErrors>False</IgnoreErrors>
+                <FieldLen>254</FieldLen>
+                <AllowShareWrite>False</AllowShareWrite>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>products.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="product_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="product_category_name" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="product_name" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="product_brand" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="product_weight_g" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="product_length_cm" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="product_height_cm" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="product_width_cm" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="cost" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+                <Field name="price" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\products.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="198" y="77" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="order_id" selected="True" />
+                <SelectField field="customer_id" selected="True" />
+                <SelectField field="order_purchase_timestamp" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="198" y="318" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="product_id" selected="True" />
+                <SelectField field="product_category_name" selected="True" />
+                <SelectField field="cost" selected="True" type="Double" size="8" />
+                <SelectField field="price" selected="True" type="Double" size="8" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+            <Position x="293" y="78" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <IsFrom value="False" />
+              <InputFieldName>order_purchase_timestamp</InputFieldName>
+              <Language>English</Language>
+              <Format>yyyy-MM-dd hh:mm:ss</Format>
+              <OutputFieldName>Purchase_Date_Out</OutputFieldName>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Convert order_purchase_timestamp From:
+yyyy-MM-dd hh:mm:ss</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="77" y="245" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv</File>
+              <FormatSpecificOptions>
+                <CodePage>28591</CodePage>
+                <Delimeter>,</Delimeter>
+                <IgnoreErrors>False</IgnoreErrors>
+                <FieldLen>254</FieldLen>
+                <AllowShareWrite>False</AllowShareWrite>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>order_items.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="order_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+                <Field name="order_item_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+                <Field name="product_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+                <Field name="seller_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+                <Field name="shipping_limit_date" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+                <Field name="price" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+                <Field name="freight_value" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+                <Field name="discount_rate" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\order_items.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="78" y="161" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv</File>
+              <FormatSpecificOptions>
+                <CodePage>28591</CodePage>
+                <Delimeter>,</Delimeter>
+                <IgnoreErrors>False</IgnoreErrors>
+                <FieldLen>254</FieldLen>
+                <AllowShareWrite>False</AllowShareWrite>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>customers.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="customer_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_unique_id" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_name" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_gender" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_age" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_zip_code_prefix" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_city" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_state" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+                <Field name="customer_segment" size="254" source="File: C:\Users\Syahmi\OneDrive - Universiti Teknologi Malaysia (UTM)\SEM 6\BI\PROJECT\customers.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="197" y="245" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="order_id" selected="True" />
+                <SelectField field="product_id" selected="True" />
+                <SelectField field="price" selected="True" type="Double" size="8" />
+                <SelectField field="freight_value" selected="True" type="Double" size="8" />
+                <SelectField field="discount_rate" selected="True" type="Double" size="8" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="198" y="162" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="customer_id" selected="True" />
+                <SelectField field="customer_state" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings>
+            <Position x="294" y="162" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"customer_id","customer_state"</Value>
+              <Value name="Check Box (84)">True</Value>
+              <Value name="Check Box (117)">True</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="12">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="426" y="126" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="customer_id" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="customer_id" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_customer_id" selected="True" rename="Right_customer_id" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="498" y="234" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="order_id" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="order_id" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_order_id" selected="True" rename="Right_order_id" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="558" y="306" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="product_id" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="product_id" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_order_purchase_timestamp" selected="False" input="Left_" />
+                    <SelectField field="Left_Right_customer_id" selected="False" input="Left_" />
+                    <SelectField field="Left_Right_order_id" selected="False" input="Left_" />
+                    <SelectField field="Left_discount_rate" selected="False" input="Left_" />
+                    <SelectField field="Right_product_id" selected="False" rename="Right_product_id" input="Right_" />
+                    <SelectField field="Right_price" selected="True" rename="Right_price" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="642" y="306" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="(([price] - [cost] - [freight_value]) / [price]) * 100" field="Profit Margin (%)" size="8" type="Double" enabled="true" />
+                <FormulaField expression="(([Right_price] - [price]) / [Right_price]) * 100" field="Discount Rate (%)" size="8" type="Double" enabled="true" />
+                <FormulaField expression="DateTimeYear([Purchase_Date_Out])" field="Order Year" size="2" type="Int16" enabled="true" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Profit Margin (%) = (([price] - [cost] - [freight_value]) / [price]) * 100
+Disco...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="726" y="306" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="product_category_name" action="GroupBy" rename="product_category_name" />
+                <SummarizeField field="Order Year" action="GroupBy" rename="Order Year" />
+                <SummarizeField field="customer_state" action="GroupBy" rename="customer_state" />
+                <SummarizeField field="price" action="Sum" rename="Total Revenue" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="810" y="306" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[Total Revenue] &gt; 0</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Total Revenue] &gt; 0</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="14" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Join" />
+      <Destination ToolID="14" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="12" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output26" />
+      <Destination ToolID="12" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="13" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Join" />
+      <Destination ToolID="13" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Join" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <DefaultTZ value="Local" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Part1_Sales_Products_Syahmi</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="cae38ab4-b08b-4054-8b74-fc41ebda317b" />
+      <Telemetry>
+        <PreviousWorkflowId value="025f3b64-0928-4b84-b4d3-25b33ed17ce7" />
+        <OriginWorkflowId value="025f3b64-0928-4b84-b4d3-25b33ed17ce7" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
