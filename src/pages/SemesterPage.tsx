@@ -1,62 +1,71 @@
-import { Link, useParams, Navigate } from 'react-router-dom';
-import { findSemester } from '../data/portfolio';
-import Breadcrumbs from '../components/Breadcrumbs';
+import { Link, Navigate, useParams } from 'react-router-dom';
+import { findSemester, SUBJECT_GRADIENTS } from '../data/portfolio';
 
 export default function SemesterPage() {
   const { semSlug } = useParams();
   const semester = semSlug ? findSemester(semSlug) : undefined;
-  if (!semester) return <Navigate to="/semesters" replace />;
+  if (!semester) return <Navigate to="/" replace />;
 
   return (
-    <div className="container-page py-12">
-      <Breadcrumbs
-        items={[
-          { to: '/', label: 'Home' },
-          { to: '/semesters', label: 'Semesters' },
-          { label: semester.title },
-        ]}
-      />
+    <div>
+      {/* Semester hero */}
+      <section className="hero">
+        <div className="container-page py-20 md:py-28">
+          <p className="text-cyan-300/90 font-semibold uppercase tracking-[0.3em] text-xs mb-6">
+            {semester.year} · {semester.tagline}
+          </p>
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+            {semester.title}
+          </h1>
+          <p className="mt-6 text-lg text-white/70 max-w-2xl leading-relaxed">
+            {semester.summary}
+          </p>
+          <p className="mt-8 text-sm uppercase tracking-widest text-white/50">
+            {semester.subjects.length} subjects
+          </p>
+        </div>
+      </section>
 
-      <header>
-        <p className="text-xs font-medium text-emerald-700 uppercase tracking-wide">
-          {semester.year}
-        </p>
-        <h1 className="mt-2 text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
-          {semester.title}
-        </h1>
-        <p className="mt-4 text-zinc-600 max-w-2xl leading-relaxed">
-          {semester.summary}
-        </p>
-      </header>
-
-      <section className="mt-10">
-        <h2 className="text-lg font-semibold text-zinc-900 mb-4">Subjects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {semester.subjects.map((sub) => (
-            <Link
-              key={sub.slug}
-              to={`/semesters/${semester.slug}/${sub.slug}`}
-              className="card group"
-            >
-              <div className="flex items-baseline justify-between gap-3">
-                <div>
-                  <p className="text-xs text-zinc-500 font-medium">
-                    {sub.code ?? sub.short}
-                  </p>
-                  <h3 className="mt-1 text-base font-semibold text-zinc-900 group-hover:text-emerald-700 transition-colors">
-                    {sub.name}
-                  </h3>
-                </div>
-                <span className="text-xs text-zinc-400 whitespace-nowrap">
-                  {sub.projects.length}{' '}
-                  {sub.projects.length === 1 ? 'project' : 'projects'}
-                </span>
-              </div>
-              <p className="mt-3 text-sm text-zinc-600 line-clamp-3">
-                {sub.summary}
-              </p>
-            </Link>
-          ))}
+      {/* Subjects */}
+      <section className="section">
+        <div className="container-page">
+          <h2 className="section-title">Subjects</h2>
+          <p className="section-subtitle">
+            Pick a subject to see every assignment, lab, tutorial, and project
+            inside it.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {semester.subjects.map((sub, i) => {
+              const gradient =
+                SUBJECT_GRADIENTS[i % SUBJECT_GRADIENTS.length];
+              return (
+                <Link
+                  key={sub.slug}
+                  to={`/${semester.slug}/${sub.slug}`}
+                  className="block"
+                >
+                  <div className="tile">
+                    <div className={`tile-image bg-gradient-to-br ${gradient}`} />
+                    <div className="tile-body">
+                      {sub.code && (
+                        <span className="text-[11px] uppercase tracking-widest text-white/80 font-semibold">
+                          {sub.code}
+                        </span>
+                      )}
+                      <h3 className="text-2xl mt-1">{sub.name}</h3>
+                      <p className="text-sm text-white/80 mt-2 line-clamp-3 leading-snug">
+                        {sub.summary}
+                      </p>
+                      <span className="mt-4 inline-flex items-center text-xs uppercase tracking-widest text-white font-semibold">
+                        {sub.works.length}{' '}
+                        {sub.works.length === 1 ? 'work' : 'works'} →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>

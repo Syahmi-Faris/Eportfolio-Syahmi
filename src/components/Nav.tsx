@@ -1,46 +1,61 @@
 import { Link, NavLink } from 'react-router-dom';
+import { portfolio } from '../data/portfolio';
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-zinc-200">
-      <div className="container-page flex items-center justify-between py-4">
-        <Link to="/" className="font-semibold tracking-tight text-zinc-900">
-          Syahmi <span className="text-zinc-400 font-normal">— Eportfolio</span>
+    <header className="site-header sticky top-0 z-40">
+      <div className="container-page flex items-center justify-between py-5">
+        <Link to="/" className="flex items-baseline gap-2 group">
+          <span className="font-display font-extrabold text-white tracking-tight text-lg">
+            E-PORTFOLIO
+          </span>
+          <span className="text-xs text-white/60 tracking-widest uppercase">
+            by Syahmi Faris
+          </span>
         </Link>
-        <nav className="flex items-center gap-6 text-sm">
+        <nav className="hidden md:flex items-center gap-7 text-sm">
           <NavLink
             to="/"
             end
             className={({ isActive }) =>
-              isActive ? 'text-zinc-900 font-medium' : 'text-zinc-500 hover:text-zinc-900'
+              `uppercase tracking-wider font-semibold transition-colors ${
+                isActive ? 'text-white' : 'text-white/60 hover:text-white'
+              }`
             }
           >
             Home
           </NavLink>
-          <NavLink
-            to="/semesters"
-            className={({ isActive }) =>
-              isActive ? 'text-zinc-900 font-medium' : 'text-zinc-500 hover:text-zinc-900'
-            }
+          {portfolio.map((sem) =>
+            sem.externalUrl ? (
+              <a
+                key={sem.slug}
+                href={sem.externalUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="uppercase tracking-wider font-semibold text-white/60 hover:text-white transition-colors"
+              >
+                {sem.title}
+              </a>
+            ) : (
+              <NavLink
+                key={sem.slug}
+                to={`/${sem.slug}`}
+                className={({ isActive }) =>
+                  `uppercase tracking-wider font-semibold transition-colors ${
+                    isActive ? 'text-white' : 'text-white/60 hover:text-white'
+                  }`
+                }
+              >
+                {sem.title}
+              </NavLink>
+            ),
+          )}
+          <a
+            href="#contact"
+            className="uppercase tracking-wider font-semibold text-white/60 hover:text-white transition-colors"
           >
-            Semesters
-          </NavLink>
-          <NavLink
-            to="/activities"
-            className={({ isActive }) =>
-              isActive ? 'text-zinc-900 font-medium' : 'text-zinc-500 hover:text-zinc-900'
-            }
-          >
-            Activities
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? 'text-zinc-900 font-medium' : 'text-zinc-500 hover:text-zinc-900'
-            }
-          >
-            About
-          </NavLink>
+            Contact
+          </a>
         </nav>
       </div>
     </header>
