@@ -1,0 +1,985 @@
+db.menu_items.insertOne({
+  "itemCode": "DS004",
+  "name": "Strawberry Tart",
+  "category": "Dessert",
+  "price": 6.00,
+  "available": true,
+  "tags": ["sweet", "strawberry", "tart"],
+  "createdAt": { "$date": "2025-01-01T00:00:00Z" }
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69626ac8439c14eec5522fc9')
+}
+db.menu_items.find({itemCode: "DS004"})
+{
+  _id: ObjectId('69626ac8439c14eec5522fc9'),
+  itemCode: 'DS004',
+  name: 'Strawberry Tart',
+  category: 'Dessert',
+  price: 6,
+  available: true,
+  tags: [
+    'sweet',
+    'strawberry',
+    'tart'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+db.customers.insertMany([
+  {customerId: "CUST011", name: "Irfan Zaki", phone: "0182233445", membership: [{type: "Student", points: 40}], joinedAt: { "$date": "2024-01-06T00:00:00Z" }},
+  {customerId: "CUST012", name: "Nabila Farah", phone: "0196677889", membership: [{type: "Regular", points: 180}], joinedAt: { "$date": "2024-01-07T00:00:00Z" }},
+  {customerId: "CUST013", name: "Adam Firdaus", phone: "0113344556", membership: [{type: "Guest", points: 0}], joinedAt: { "$date": "2024-01-08T00:00:00Z" }}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69626e72439c14eec5522fca'),
+    '1': ObjectId('69626e72439c14eec5522fcb'),
+    '2': ObjectId('69626e72439c14eec5522fcc')
+  }
+}
+db.menu_items.find()
+{
+  _id: ObjectId('695934de4b77a79e2d6450cd'),
+  itemCode: 'BV001',
+  name: 'Cappuccino',
+  category: 'Beverage',
+  price: 8.5,
+  available: true,
+  tags: [
+    'coffee',
+    'hot',
+    'cold'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450ce'),
+  itemCode: 'BV002',
+  name: 'Latte',
+  category: 'Beverage',
+  price: 9,
+  available: true,
+  tags: [
+    'coffee',
+    'hot'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450cf'),
+  itemCode: 'BV003',
+  name: 'Iced Lemon Tea',
+  category: 'Beverage',
+  price: 6.5,
+  available: true,
+  tags: [
+    'cold',
+    'tea'
+  ],
+  createdAt: 2025-01-03T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d0'),
+  itemCode: 'BV004',
+  name: 'Chocolate Milk',
+  category: 'Beverage',
+  price: 7,
+  available: false,
+  tags: [
+    'cold',
+    'sweet'
+  ],
+  createdAt: 2025-01-04T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d1'),
+  itemCode: 'FD001',
+  name: 'Chicken Sandwich',
+  category: 'Food',
+  price: 12,
+  available: true,
+  tags: [
+    'savory',
+    'chicken'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d2'),
+  itemCode: 'FD002',
+  name: 'Beef Burger',
+  category: 'Food',
+  price: 15.5,
+  available: true,
+  tags: [
+    'beef',
+    'grilled'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d3'),
+  itemCode: 'FD003',
+  name: 'Vegetarian Pasta',
+  category: 'Food',
+  price: 13,
+  available: false,
+  tags: [
+    'vegetarian',
+    'pasta'
+  ],
+  createdAt: 2025-01-03T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d4'),
+  itemCode: 'DS001',
+  name: 'Chocolate Cake',
+  category: 'Dessert',
+  price: 10,
+  available: true,
+  tags: [
+    'sweet',
+    'chocolate'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d5'),
+  itemCode: 'DS002',
+  name: 'Cheesecake',
+  category: 'Dessert',
+  price: 11,
+  available: true,
+  tags: [
+    'sweet',
+    'cheese'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d6'),
+  itemCode: 'DS003',
+  name: 'Ice Cream Sundae',
+  category: 'Dessert',
+  price: 9.5,
+  available: false,
+  tags: [
+    'cold',
+    'sweet'
+  ],
+  createdAt: 2025-01-03T00:00:00.000Z
+}
+{
+  _id: ObjectId('69626ac8439c14eec5522fc9'),
+  itemCode: 'DS004',
+  name: 'Strawberry Tart',
+  category: 'Dessert',
+  price: 6,
+  available: true,
+  tags: [
+    'sweet',
+    'strawberry',
+    'tart'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+db.menu_items.findOne({itemCode: "DS004"})
+{
+  _id: ObjectId('69626ac8439c14eec5522fc9'),
+  itemCode: 'DS004',
+  name: 'Strawberry Tart',
+  category: 'Dessert',
+  price: 6,
+  available: true,
+  tags: [
+    'sweet',
+    'strawberry',
+    'tart'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+db.menu_items.find({
+  category: {$eq: "Dessert"}
+})
+{
+  _id: ObjectId('695934de4b77a79e2d6450d4'),
+  itemCode: 'DS001',
+  name: 'Chocolate Cake',
+  category: 'Dessert',
+  price: 10,
+  available: true,
+  tags: [
+    'sweet',
+    'chocolate'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d5'),
+  itemCode: 'DS002',
+  name: 'Cheesecake',
+  category: 'Dessert',
+  price: 11,
+  available: true,
+  tags: [
+    'sweet',
+    'cheese'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d6'),
+  itemCode: 'DS003',
+  name: 'Ice Cream Sundae',
+  category: 'Dessert',
+  price: 9.5,
+  available: false,
+  tags: [
+    'cold',
+    'sweet'
+  ],
+  createdAt: 2025-01-03T00:00:00.000Z
+}
+{
+  _id: ObjectId('69626ac8439c14eec5522fc9'),
+  itemCode: 'DS004',
+  name: 'Strawberry Tart',
+  category: 'Dessert',
+  price: 6,
+  available: true,
+  tags: [
+    'sweet',
+    'strawberry',
+    'tart'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+db.customers.find({
+  "membership.points": {$gt:100}
+})
+{
+  _id: ObjectId('6959368f4b77a79e2d6450d9'),
+  customerId: 'CUST001',
+  name: 'Aiman Hakim',
+  phone: '0123456789',
+  membership: {
+    type: 'Student',
+    points: 120
+  },
+  joinedAt: 2024-12-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('6959368f4b77a79e2d6450dc'),
+  customerId: 'CUST004',
+  name: 'Siti Aminah',
+  phone: '0165566778',
+  membership: {
+    type: 'Regular',
+    points: 200
+  },
+  joinedAt: 2024-11-20T00:00:00.000Z
+}
+{
+  _id: ObjectId('6959368f4b77a79e2d6450df'),
+  customerId: 'CUST007',
+  name: 'Hafiz Rahman',
+  phone: '0117788990',
+  membership: {
+    type: 'Regular',
+    points: 150
+  },
+  joinedAt: 2024-11-30T00:00:00.000Z
+}
+{
+  _id: ObjectId('695d32c2608394cd46844dfa'),
+  customerId: 'CUST001',
+  name: 'Aiman Hakim',
+  phone: '0123456789',
+  membership: {
+    type: 'Student',
+    points: 120
+  },
+  joinedAt: 2024-12-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695d32c2608394cd46844dfd'),
+  customerId: 'CUST004',
+  name: 'Siti Aminah',
+  phone: '0165566778',
+  membership: {
+    type: 'Regular',
+    points: 200
+  },
+  joinedAt: 2024-11-20T00:00:00.000Z
+}
+{
+  _id: ObjectId('695d32c2608394cd46844e00'),
+  customerId: 'CUST007',
+  name: 'Hafiz Rahman',
+  phone: '0117788990',
+  membership: {
+    type: 'Regular',
+    points: 150
+  },
+  joinedAt: 2024-11-30T00:00:00.000Z
+}
+{
+  _id: ObjectId('69626e72439c14eec5522fcb'),
+  customerId: 'CUST012',
+  name: 'Nabila Farah',
+  phone: '0196677889',
+  membership: [
+    {
+      type: 'Regular',
+      points: 180
+    }
+  ],
+  joinedAt: 2024-01-07T00:00:00.000Z
+}
+db.menu_items.find({
+  category: {$eq: "Dessert"}
+}).limit(2)
+{
+  _id: ObjectId('695934de4b77a79e2d6450d4'),
+  itemCode: 'DS001',
+  name: 'Chocolate Cake',
+  category: 'Dessert',
+  price: 10,
+  available: true,
+  tags: [
+    'sweet',
+    'chocolate'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d5'),
+  itemCode: 'DS002',
+  name: 'Cheesecake',
+  category: 'Dessert',
+  price: 11,
+  available: true,
+  tags: [
+    'sweet',
+    'cheese'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+db.customers.find({
+  "membership.points": {$gt:100}
+}).limit(2)
+{
+  _id: ObjectId('6959368f4b77a79e2d6450d9'),
+  customerId: 'CUST001',
+  name: 'Aiman Hakim',
+  phone: '0123456789',
+  membership: {
+    type: 'Student',
+    points: 120
+  },
+  joinedAt: 2024-12-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('6959368f4b77a79e2d6450dc'),
+  customerId: 'CUST004',
+  name: 'Siti Aminah',
+  phone: '0165566778',
+  membership: {
+    type: 'Regular',
+    points: 200
+  },
+  joinedAt: 2024-11-20T00:00:00.000Z
+}
+db.menu_items.find({
+  price: {$lt:10}
+}).limit(2)
+{
+  _id: ObjectId('695934de4b77a79e2d6450cd'),
+  itemCode: 'BV001',
+  name: 'Cappuccino',
+  category: 'Beverage',
+  price: 8.5,
+  available: true,
+  tags: [
+    'coffee',
+    'hot',
+    'cold'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450ce'),
+  itemCode: 'BV002',
+  name: 'Latte',
+  category: 'Beverage',
+  price: 9,
+  available: true,
+  tags: [
+    'coffee',
+    'hot'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+db.menu_items.find({
+  category: {$in: ["Beverage", "Dessert"]}
+})
+{
+  _id: ObjectId('695934de4b77a79e2d6450cd'),
+  itemCode: 'BV001',
+  name: 'Cappuccino',
+  category: 'Beverage',
+  price: 8.5,
+  available: true,
+  tags: [
+    'coffee',
+    'hot',
+    'cold'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450ce'),
+  itemCode: 'BV002',
+  name: 'Latte',
+  category: 'Beverage',
+  price: 9,
+  available: true,
+  tags: [
+    'coffee',
+    'hot'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450cf'),
+  itemCode: 'BV003',
+  name: 'Iced Lemon Tea',
+  category: 'Beverage',
+  price: 6.5,
+  available: true,
+  tags: [
+    'cold',
+    'tea'
+  ],
+  createdAt: 2025-01-03T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d0'),
+  itemCode: 'BV004',
+  name: 'Chocolate Milk',
+  category: 'Beverage',
+  price: 7,
+  available: false,
+  tags: [
+    'cold',
+    'sweet'
+  ],
+  createdAt: 2025-01-04T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d4'),
+  itemCode: 'DS001',
+  name: 'Chocolate Cake',
+  category: 'Dessert',
+  price: 10,
+  available: true,
+  tags: [
+    'sweet',
+    'chocolate'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d5'),
+  itemCode: 'DS002',
+  name: 'Cheesecake',
+  category: 'Dessert',
+  price: 11,
+  available: true,
+  tags: [
+    'sweet',
+    'cheese'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450d6'),
+  itemCode: 'DS003',
+  name: 'Ice Cream Sundae',
+  category: 'Dessert',
+  price: 9.5,
+  available: false,
+  tags: [
+    'cold',
+    'sweet'
+  ],
+  createdAt: 2025-01-03T00:00:00.000Z
+}
+{
+  _id: ObjectId('69626ac8439c14eec5522fc9'),
+  itemCode: 'DS004',
+  name: 'Strawberry Tart',
+  category: 'Dessert',
+  price: 6,
+  available: true,
+  tags: [
+    'sweet',
+    'strawberry',
+    'tart'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+db.menu_items.find({
+  category: {$in: ["Beverage", "Dessert"]}
+}).limit(2)
+{
+  _id: ObjectId('695934de4b77a79e2d6450cd'),
+  itemCode: 'BV001',
+  name: 'Cappuccino',
+  category: 'Beverage',
+  price: 8.5,
+  available: true,
+  tags: [
+    'coffee',
+    'hot',
+    'cold'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450ce'),
+  itemCode: 'BV002',
+  name: 'Latte',
+  category: 'Beverage',
+  price: 9,
+  available: true,
+  tags: [
+    'coffee',
+    'hot'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+db.menu_items.find({
+  $and: [
+    {category: "Beverage"},
+    {available: true},
+    {price: {$lt:9}}
+  ]
+})
+{
+  _id: ObjectId('695934de4b77a79e2d6450cd'),
+  itemCode: 'BV001',
+  name: 'Cappuccino',
+  category: 'Beverage',
+  price: 8.5,
+  available: true,
+  tags: [
+    'coffee',
+    'hot',
+    'cold'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450cf'),
+  itemCode: 'BV003',
+  name: 'Iced Lemon Tea',
+  category: 'Beverage',
+  price: 6.5,
+  available: true,
+  tags: [
+    'cold',
+    'tea'
+  ],
+  createdAt: 2025-01-03T00:00:00.000Z
+}
+db.orders.find({
+  $or: [
+    { status: "Pending" },
+    { status: "FAILED" }
+  ]
+})
+{
+  _id: ObjectId('695937a14b77a79e2d6450e9'),
+  orderId: 'ORD003',
+  customerId: 'CUST003',
+  orderDate: 2025-01-05T11:15:00.000Z,
+  status: 'Pending',
+  items: [
+    {
+      itemCode: 'BV003',
+      name: 'Iced Lemon Tea',
+      quantity: 2,
+      price: 6.5
+    }
+  ],
+  totalAmount: 13,
+  payment: {
+    method: 'Cash',
+    paid: false
+  }
+}
+{
+  _id: ObjectId('695937a14b77a79e2d6450ee'),
+  orderId: 'ORD008',
+  customerId: 'CUST008',
+  orderDate: 2025-01-07T10:10:00.000Z,
+  status: 'Pending',
+  items: [
+    {
+      itemCode: 'DS003',
+      name: 'Ice Cream Sundae',
+      quantity: 1,
+      price: 9.5
+    },
+    {
+      itemCode: 'BV003',
+      name: 'Iced Lemon Tea',
+      quantity: 1,
+      price: 6.5
+    }
+  ],
+  totalAmount: 16,
+  payment: {
+    method: 'Cash',
+    paid: false
+  }
+}
+db.orders.find({
+  $or: [
+    { status: "Pending" },
+    { status: "FAILED" }
+  ]
+}).limit(1)
+{
+  _id: ObjectId('695937a14b77a79e2d6450e9'),
+  orderId: 'ORD003',
+  customerId: 'CUST003',
+  orderDate: 2025-01-05T11:15:00.000Z,
+  status: 'Pending',
+  items: [
+    {
+      itemCode: 'BV003',
+      name: 'Iced Lemon Tea',
+      quantity: 2,
+      price: 6.5
+    }
+  ],
+  totalAmount: 13,
+  payment: {
+    method: 'Cash',
+    paid: false
+  }
+}
+db.menu_items.find({
+  tags: "coffee"
+}).limit(2)
+{
+  _id: ObjectId('695934de4b77a79e2d6450cd'),
+  itemCode: 'BV001',
+  name: 'Cappuccino',
+  category: 'Beverage',
+  price: 8.5,
+  available: true,
+  tags: [
+    'coffee',
+    'hot',
+    'cold'
+  ],
+  createdAt: 2025-01-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('695934de4b77a79e2d6450ce'),
+  itemCode: 'BV002',
+  name: 'Latte',
+  category: 'Beverage',
+  price: 9,
+  available: true,
+  tags: [
+    'coffee',
+    'hot'
+  ],
+  createdAt: 2025-01-02T00:00:00.000Z
+}
+db.orders.find({
+  items: {
+    $elemMatch: {
+      itemCode: "BV001",
+      quantity: { $gte: 2 }
+    }
+  }
+}).limit(2)
+{
+  _id: ObjectId('695937a14b77a79e2d6450e7'),
+  orderId: 'ORD001',
+  customerId: 'CUST001',
+  orderDate: 2025-01-05T09:30:00.000Z,
+  status: 'Completed',
+  items: [
+    {
+      itemCode: 'BV001',
+      name: 'Cappuccino',
+      quantity: 2,
+      price: 8.5
+    },
+    {
+      itemCode: 'DS001',
+      name: 'Chocolate Cake',
+      quantity: 1,
+      price: 10
+    }
+  ],
+  totalAmount: 27,
+  payment: {
+    method: 'Cash',
+    paid: true
+  }
+}
+db.orders.find({
+  items: {
+    $elemMatch: {
+      itemCode: "BV001",
+      quantity: { $gte: 2 }
+    }
+  }
+})
+{
+  _id: ObjectId('695937a14b77a79e2d6450e7'),
+  orderId: 'ORD001',
+  customerId: 'CUST001',
+  orderDate: 2025-01-05T09:30:00.000Z,
+  status: 'Completed',
+  items: [
+    {
+      itemCode: 'BV001',
+      name: 'Cappuccino',
+      quantity: 2,
+      price: 8.5
+    },
+    {
+      itemCode: 'DS001',
+      name: 'Chocolate Cake',
+      quantity: 1,
+      price: 10
+    }
+  ],
+  totalAmount: 27,
+  payment: {
+    method: 'Cash',
+    paid: true
+  }
+}
+db.customers.find(
+  {},
+  {
+    _id: 0,
+    name: 1,
+    "membership.type": 1
+  }
+)
+{
+  name: 'Aiman Hakim',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Nur Aisyah',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Daniel Lee',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Siti Aminah',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Farhan Zaki',
+  membership: {
+    type: 'Guest'
+  }
+}
+{
+  name: 'Amirah Sofea',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Hafiz Rahman',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Alya Nabila',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Ryan Wong',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Zara Iman',
+  membership: {
+    type: 'Guest'
+  }
+}
+{
+  name: 'Aiman Hakim',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Nur Aisyah',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Daniel Lee',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Siti Aminah',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Farhan Zaki',
+  membership: {
+    type: 'Guest'
+  }
+}
+{
+  name: 'Amirah Sofea',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Hafiz Rahman',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Alya Nabila',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Ryan Wong',
+  membership: {
+    type: 'Regular'
+  }
+}
+{
+  name: 'Zara Iman',
+  membership: {
+    type: 'Guest'
+  }
+}
+Type "it" for more
+db.customers.find(
+  {},
+  {
+    _id: 0,
+    name: 1,
+    "membership.type": 1
+  }
+).limit(2)
+{
+  name: 'Aiman Hakim',
+  membership: {
+    type: 'Student'
+  }
+}
+{
+  name: 'Nur Aisyah',
+  membership: {
+    type: 'Regular'
+  }
+}
+db.customers.find(
+  {},
+  {
+    phone: 0
+  }
+).limit(2)
+{
+  _id: ObjectId('6959368f4b77a79e2d6450d9'),
+  customerId: 'CUST001',
+  name: 'Aiman Hakim',
+  membership: {
+    type: 'Student',
+    points: 120
+  },
+  joinedAt: 2024-12-01T00:00:00.000Z
+}
+{
+  _id: ObjectId('6959368f4b77a79e2d6450da'),
+  customerId: 'CUST002',
+  name: 'Nur Aisyah',
+  membership: {
+    type: 'Regular',
+    points: 80
+  },
+  joinedAt: 2024-12-05T00:00:00.000Z
+}
+db.menu_items.updateOne(
+  { name: "Vegetarian Pasta" },
+  { $set: { available: true } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.customers.updateOne(
+  { customerId: "CUST001" },
+  { $inc: { "membership.points": 20 } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.menu_items.updateOne(
+  { name: "Cappuccino" },
+  { $push: { tags: "popular" } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.menu_items.updateMany(
+  { tags: "sweet" },
+  { $pull: { tags: "sweet" } }
+)

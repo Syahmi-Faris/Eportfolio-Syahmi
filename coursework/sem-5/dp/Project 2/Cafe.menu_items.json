@@ -1,0 +1,185 @@
+[{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450cd"
+  },
+  "itemCode": "BV001",
+  "name": "Cappuccino",
+  "category": "Beverage",
+  "price": 8.5,
+  "available": true,
+  "tags": [
+    "coffee",
+    "hot",
+    "cold",
+    "popular"
+  ],
+  "createdAt": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450ce"
+  },
+  "itemCode": "BV002",
+  "name": "Latte",
+  "category": "Beverage",
+  "price": 9,
+  "available": true,
+  "tags": [
+    "coffee",
+    "hot"
+  ],
+  "createdAt": {
+    "$date": "2025-01-02T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450cf"
+  },
+  "itemCode": "BV003",
+  "name": "Iced Lemon Tea",
+  "category": "Beverage",
+  "price": 6.5,
+  "available": true,
+  "tags": [
+    "cold",
+    "tea"
+  ],
+  "createdAt": {
+    "$date": "2025-01-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450d0"
+  },
+  "itemCode": "BV004",
+  "name": "Chocolate Milk",
+  "category": "Beverage",
+  "price": 7,
+  "available": false,
+  "tags": [
+    "cold"
+  ],
+  "createdAt": {
+    "$date": "2025-01-04T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450d1"
+  },
+  "itemCode": "FD001",
+  "name": "Chicken Sandwich",
+  "category": "Food",
+  "price": 12,
+  "available": true,
+  "tags": [
+    "savory",
+    "chicken"
+  ],
+  "createdAt": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450d2"
+  },
+  "itemCode": "FD002",
+  "name": "Beef Burger",
+  "category": "Food",
+  "price": 15.5,
+  "available": true,
+  "tags": [
+    "beef",
+    "grilled"
+  ],
+  "createdAt": {
+    "$date": "2025-01-02T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450d3"
+  },
+  "itemCode": "FD003",
+  "name": "Vegetarian Pasta",
+  "category": "Food",
+  "price": 13,
+  "available": true,
+  "tags": [
+    "vegetarian",
+    "pasta"
+  ],
+  "createdAt": {
+    "$date": "2025-01-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450d4"
+  },
+  "itemCode": "DS001",
+  "name": "Chocolate Cake",
+  "category": "Dessert",
+  "price": 10,
+  "available": true,
+  "tags": [
+    "chocolate"
+  ],
+  "createdAt": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450d5"
+  },
+  "itemCode": "DS002",
+  "name": "Cheesecake",
+  "category": "Dessert",
+  "price": 11,
+  "available": true,
+  "tags": [
+    "cheese"
+  ],
+  "createdAt": {
+    "$date": "2025-01-02T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "695934de4b77a79e2d6450d6"
+  },
+  "itemCode": "DS003",
+  "name": "Ice Cream Sundae",
+  "category": "Dessert",
+  "price": 9.5,
+  "available": false,
+  "tags": [
+    "cold"
+  ],
+  "createdAt": {
+    "$date": "2025-01-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69626ac8439c14eec5522fc9"
+  },
+  "itemCode": "DS004",
+  "name": "Strawberry Tart",
+  "category": "Dessert",
+  "price": 6,
+  "available": true,
+  "tags": [
+    "strawberry",
+    "tart"
+  ],
+  "createdAt": {
+    "$date": "2025-01-01T00:00:00Z"
+  }
+}]

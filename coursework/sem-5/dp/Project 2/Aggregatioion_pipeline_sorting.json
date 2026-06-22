@@ -1,0 +1,26 @@
+db.menu_items.aggregate([
+  { $group: { _id: null, totalMenuItems: { $sum: 1 } } },
+  { $project: { _id: 0, totalMenuItems: 1 } }
+])
+
+db.menu.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      totalItems: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      category: "$_id",
+      totalItems: 1
+    }
+  }
+])
+
+
+
+db.menu_items.find({}, { _id:0, itemCode:1, name:1, price:1 }).sort({ price: 1 })
+
+db.menu_items.find({}, { _id:0, itemCode:1, name:1, price:1 }).sort({ price: -1 })
