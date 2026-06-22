@@ -11,7 +11,7 @@ export default function Home() {
             E-Portfolio
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight max-w-4xl">
-            Hi, I'm Muhammad Syahmi Faris.
+            Hi, I'm Muhammad Syahmi Farisss.
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed">
             This website is my e-portfolio. You can access all my work and
