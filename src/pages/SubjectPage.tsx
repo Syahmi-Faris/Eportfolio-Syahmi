@@ -96,14 +96,23 @@ export default function SubjectPage() {
                   <h3>{work.title}</h3>
                   <p>{work.description}</p>
                   <div className="flex flex-wrap gap-3">
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn btn-primary"
-                    >
-                      View Work
-                    </a>
+                    {url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-primary"
+                      >
+                        View Work
+                      </a>
+                    ) : (
+                      <span
+                        className="btn border-2 border-zinc-200 text-zinc-400 cursor-not-allowed"
+                        title="Link will be added soon"
+                      >
+                        Coming Soon
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

@@ -36,12 +36,14 @@ export type Semester = {
 const REPO_BASE =
   'https://github.com/Syahmi-Faris/Eportfolio-Syahmi/tree/main';
 
-export function defaultViewUrl(subject: Subject, work: Work): string {
+// Returns the URL the View Work button should open. Null means no URL is
+// configured yet — the UI shows a disabled "Coming soon" button instead.
+export function defaultViewUrl(subject: Subject, work: Work): string | null {
   if (work.viewUrl) return work.viewUrl;
   if (subject.basePath) {
     return `${REPO_BASE}/${subject.basePath}`;
   }
-  return REPO_BASE;
+  return null;
 }
 
 export const portfolio: Semester[] = [
@@ -104,26 +106,44 @@ export const portfolio: Semester[] = [
         basePath: 'coursework/sem-5/dp',
         works: [
           {
-            slug: 'project',
-            title: 'Advanced Database Programming Project',
+            slug: 'project-1',
+            title: 'Project 1 — Advanced SQL',
             type: 'project',
             description:
-              'Project covering advanced SQL operations on the ClassicModel database — stored procedures, transactions, indexing — plus MongoDB NoSQL operations.',
-            viewUrl: `${REPO_BASE}/coursework/sem-5/dp/advanced-database-project`,
+              'First database programming project — advanced SQL operations including stored procedures, indexing, and transaction management. Full SQL file included.',
+            viewUrl: `${REPO_BASE}/coursework/sem-5/dp/Project%201`,
           },
           {
-            slug: 'lab',
-            title: 'SQL & MongoDB Labs',
-            type: 'lab',
+            slug: 'project-2',
+            title: 'Project 2 — Database Application',
+            type: 'project',
             description:
-              'Lab exercises practising advanced SQL operations, indexes, stored procedures and MongoDB basic + advanced operations.',
+              'Second database programming project building on Project 1 — extends the application logic and database design.',
+            viewUrl: `${REPO_BASE}/coursework/sem-5/dp/Project%202`,
           },
           {
-            slug: 'assignment',
-            title: 'Course Assignments',
+            slug: 'assignment-1',
+            title: 'Assignment 1 — UHD Hostel',
             type: 'assignment',
             description:
-              'Individual assignments on SQL operations and database programming topics.',
+              'Group assignment designing and implementing a database for the UHD Hostel system. SQL DDL/DML, schema design, and queries.',
+            viewUrl: `${REPO_BASE}/coursework/sem-5/dp/Assignment%201`,
+          },
+          {
+            slug: 'assignment-2',
+            title: 'Assignment 2',
+            type: 'assignment',
+            description:
+              'Second database programming assignment exercising advanced SQL features.',
+            viewUrl: `${REPO_BASE}/coursework/sem-5/dp/Assignment%202`,
+          },
+          {
+            slug: 'labs',
+            title: 'Labs — Clinic & SQL Practice',
+            type: 'lab',
+            description:
+              'Weekly lab exercises practising advanced SQL operations, MongoDB basics, and individual lab projects like the Lab 2 Clinic database.',
+            viewUrl: `${REPO_BASE}/coursework/sem-5/dp/Labs`,
           },
         ],
       },
@@ -173,21 +193,6 @@ export const portfolio: Semester[] = [
               'Full business proposal and pitching slides for CU Mart, including hook ad-libs and pitch outline. Practised intonation, delivery, and Q&A handling.',
             viewUrl: `${REPO_BASE}/coursework/sem-5/pcs-2/cu-mart-proposal`,
           },
-          {
-            slug: 'snackdash',
-            title: 'SnackDash — Business Proposal',
-            type: 'project',
-            description:
-              'Second business proposal exploring a snack-delivery concept. Used as practice for the main pitch.',
-            viewUrl: `${REPO_BASE}/coursework/sem-5/pcs-2/snackdash-proposal`,
-          },
-          {
-            slug: 'hook-adlib',
-            title: 'Hook Ad-Lib & Pitching Practice',
-            type: 'tutorial',
-            description:
-              'Series of hook ad-lib scripts and attention-grabber drills to open a pitch.',
-          },
         ],
       },
     ],
@@ -206,7 +211,7 @@ export const portfolio: Semester[] = [
         name: 'Application Development',
         summary:
           'Modern application development — architecture, proposal writing, and full product design for a real application (DevSync).',
-        basePath: 'coursework/sem-6/ad',
+        // basePath intentionally omitted — works link to the team repo (URL pending)
         works: [
           {
             slug: 'devsync-proposal',
@@ -214,7 +219,7 @@ export const portfolio: Semester[] = [
             type: 'project',
             description:
               'Group proposal for the DevSync application (Section 01, Lab 2). Defined the product vision, requirements, and high-level architecture.',
-            viewUrl: `${REPO_BASE}/coursework/sem-6/ad/devsync-proposal`,
+            // viewUrl pending — team repo to be provided
           },
           {
             slug: 'lab-1',
@@ -222,6 +227,7 @@ export const portfolio: Semester[] = [
             type: 'lab',
             description:
               'First lab assignment laying groundwork for the AD project.',
+            // viewUrl pending
           },
         ],
       },
@@ -231,7 +237,7 @@ export const portfolio: Semester[] = [
         name: 'Business Intelligence',
         summary:
           'BI architecture, data preprocessing, semantic layers, and Power BI dashboards. Three-phase BI project on real sales data.',
-        basePath: 'coursework/sem-6/bi',
+        basePath: 'coursework/sem-6/BI',
         works: [
           {
             slug: 'powerbi-dashboard',
@@ -239,7 +245,7 @@ export const portfolio: Semester[] = [
             type: 'project',
             description:
               'Three-phase BI project: data ingestion (customers, orders, products, order_items), modelling in a semantic layer, and a final Power BI dashboard (.pbix). Also includes an Alteryx workflow for the Sales & Products analysis.',
-            viewUrl: `${REPO_BASE}/coursework/sem-6/bi/powerbi-dashboard`,
+            viewUrl: `${REPO_BASE}/coursework/sem-6/BI`,
           },
           {
             slug: 'industry-talk',
@@ -247,7 +253,7 @@ export const portfolio: Semester[] = [
             type: 'report',
             description:
               'Reflection report on a Business Intelligence industry talk — connecting classroom theory to how BI is used in industry.',
-            viewUrl: `${REPO_BASE}/coursework/sem-6/bi/industry-talk-report`,
+            viewUrl: `${REPO_BASE}/coursework/sem-6/BI`,
           },
           {
             slug: 'lab',
@@ -270,7 +276,7 @@ export const portfolio: Semester[] = [
         name: 'High Performance Data Processing',
         summary:
           'Two end-to-end projects: a Playwright web-scraping pipeline that collected 100k rows, and an NLP analysis of Grab reviews.',
-        basePath: 'coursework/sem-6/hpdp',
+        // basePath omitted — separate repos to be provided
         works: [
           {
             slug: 'webminer-carlist',
@@ -278,7 +284,7 @@ export const portfolio: Semester[] = [
             type: 'project',
             description:
               'Python web-scraping pipeline using Playwright to collect 100,000 car listings from Carlist and MotorTrader. Engineered with pagination handling, state persistence, and resume-on-failure logic. Includes cleaning and optimisation notebooks.',
-            viewUrl: `${REPO_BASE}/coursework/sem-6/hpdp/webminer-carlist`,
+            // viewUrl pending — separate repo to be provided
           },
           {
             slug: 'grab-reviews-nlp',
@@ -286,7 +292,7 @@ export const portfolio: Semester[] = [
             type: 'project',
             description:
               'Project 2: scraped Grab reviews and built an NLP pipeline — preprocessing, feature extraction, and ML models — to analyse user sentiment and review patterns.',
-            viewUrl: `${REPO_BASE}/coursework/sem-6/hpdp/grab-reviews-nlp`,
+            // viewUrl pending — separate repo to be provided
           },
           {
             slug: 'presentations',
@@ -302,7 +308,7 @@ export const portfolio: Semester[] = [
         name: 'Entrepreneurship',
         summary:
           'Real product concept work — built and pitched EduBridge AI, plus a coffee brand exercise (La Creme Kohii).',
-        basePath: 'coursework/sem-6/entrepreneurship',
+        // basePath omitted — separate links to be provided
         works: [
           {
             slug: 'edubridge-ai',
@@ -310,7 +316,7 @@ export const portfolio: Semester[] = [
             type: 'project',
             description:
               'Group coursework: developed EduBridge AI as a startup-style product concept. Includes pitch deck and full product write-up.',
-            viewUrl: `${REPO_BASE}/coursework/sem-6/entrepreneurship/edubridge-ai`,
+            // viewUrl pending
           },
           {
             slug: 'la-creme-kohii',
@@ -318,7 +324,7 @@ export const portfolio: Semester[] = [
             type: 'project',
             description:
               'Brand and marketing exercise for La Creme Kohii (coffee concept) including a promotional video and brand identity work.',
-            viewUrl: `${REPO_BASE}/coursework/sem-6/entrepreneurship/la-creme-kohii`,
+            // viewUrl pending
           },
         ],
       },
