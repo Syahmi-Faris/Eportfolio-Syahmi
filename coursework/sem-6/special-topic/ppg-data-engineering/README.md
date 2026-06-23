@@ -1,26 +1,3 @@
-# PPG Industry Data Engineering Project
-
-**Subject:** Special Topic — Data Engineering (SECP3843)
-**Semester:** 6
-
-## Overview
-
-Industry project with PPG: data collection, preparation, architecture design,
-Power BI dashboard, and group + individual reports.
-
-## Skills
-
-`Data Engineering` · `Power BI` · `Data Architecture` · `Industry Project`
-
-## What to upload here
-
-- `SECP3843 - Group 4.pdf` — group 4 deliverable
-- `SECP3843 - Group 7_260613_133023.pdf` — group 7 deliverable
-- `PPG industry Project Report (Draft).pdf` — draft report
-- `Proceeding Paper (Template).docx` — proceeding paper
-- `Scope of Work.pdf`, `Gantt Chart.png` — planning artifacts
-- `PPG Dashboard.pbix` — Power BI dashboard (if under 100 MB)
-- Presentation videos (or YouTube links)
-
-> **Note:** Multiple presentation `.mp4` videos exist for this project. If
-> they exceed 100 MB, host on YouTube and link here instead.
+<p>The PPG industry project was my technical capstone, but the parallel industry talks during this Special Topic were just as formative. The session with Mr. Zaid Waqi Zulkifli from Telekom Malaysia made one thing clear: in real enterprise environments, knowing the tech is not enough. Organisations run on layered ecosystems like SAP, Oracle, and HubSpot, and a data engineer's value comes from understanding the business deeply enough to drive useful conversations around the data. His grounding answer on internships &mdash; that it is fundamentally a learning process and the goal is to give your best and absorb, not to be perfect &mdash; reframed how I think about stepping into industry.</p>
+<p>The iZeno session pushed the technical frontier further: Agentic AI, Multimodal AI, RAG, Knowledge Mining, and the Model Context Protocol (MCP). What stuck with me most was the gap between classroom and production. In coursework we chase model accuracy on clean data; in industry, scalability, data quality, continuous monitoring, and strict governance matter just as much as the AI logic itself. Without those guardrails, even a polished RAG or conversational BI system becomes a liability instead of an asset.</p>
+<p>Looking back, this Special Topic tied my six semesters of work together: the PPG project gave me real industry engineering experience, while the TM and iZeno talks gave me the operational and business lens to interpret it. I now approach every data pipeline I build with data drift, scaling bottlenecks, governance boundaries, and the actual business question in mind &mdash; not just the model. That mindset shift is what I will carry into my career.</p>
